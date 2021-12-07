@@ -8,7 +8,7 @@ html {
 body {
     width: 100%;
     height: 100vh;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
     font-family: 'Cabin', sans-serif;
     background-color: rgb(255, 255, 255);
@@ -42,87 +42,25 @@ body {
     user-select: none;
 }
 
-table {
+.btn-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
     width: 100%;
     height: 100vh;
-    border: 0;
-    border-collapse: collapse;
-    text-align: center;
-}
-
-td {
-    width: 100%;
-    align-content: center;
-}
-
-.top-lay {
-    /* background-color: #fdeeaa; */
-    text-align: center;
-}
-
-.top-text {
-    font-size: 5vh;
-    font-weight: bold;
-    color: #25a719;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
-}
-
-.content-lay {
-    text-align: center;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    /* position: relative; */
-    margin-top: 5vh;
-    margin-bottom: 4vh;
-    z-index: 1;
 }
 
-.info-text {
-    font-size: 5vh;
-    font-weight: bold;
-    color: #2c167c;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
-    background-color: #ffffff;
-}
-
-.sub-content-lay {
-    text-align: center;
-    display: block;
-    align-items: center;
-    /* position: relative; */
-    margin-top: 20px;
-    margin-bottom: 20px;
-    z-index: 1;
-}
-
-.sub-content-lay span {
-    font-size: 3vh;
-    /* font-weight: bold; */
-    color: #000000;
-    padding: 8px;
-    margin: 8px;
-    text-align: center;
-    background-color: #ffffff;
-}
-
-.button-lay {
-    text-align: center;
-    display: block;
-    align-items: center;
-    /* position: relative; */
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-    z-index: 1;
+.btn {
+    width: 300px;
+    height: auto;
     font-size: 30px;
-}
-
-.take-quiz-btn {
-    width:300px;
-    height: 200px;
     font-weight: bold;
     color: #ffffff;
     padding: 10px;
@@ -134,4 +72,3 @@ td {
     border-width: 0px;
     cursor: pointer;
 }
-
