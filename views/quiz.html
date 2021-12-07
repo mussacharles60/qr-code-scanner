@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CRDB - Learn & Score</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/quiz.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/fonts.css" type="text/css">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
+    <meta name="description" content="Imperial Innovations (IMC) Discover your Learning Style with CRDB">
+    <meta name="robots" content="noindex,follow" />
+
+</head>
+
+<body id="app-main">
+    <div class="registration-lay" id="registration-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 top-lay">
+                    <h3>Quickly Register to Start A Quiz</h3>
+                    <hr></hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12 form-lay">
+                            <p>
+                                <input type="name" placeholder="Enter your name" class="input-text" id="input-name" name="the-name" />
+                            </p>
+                            <p>
+                                <input type="email" placeholder="Enter your email (option)" class="input-text" id="input-email" name="the-email" />
+                            </p>
+                            <p>
+                                <input type="phone" placeholder="Enter your phone (option)" class="input-text" id="input-number" name="the-phone" />
+                            </p>
+                            <p>
+                                <button class="input-button" id="input-button" onclick="onRegisterClick()">Submit</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="questions-lay" id="questions-page">
+        <div class="container main-lay questions-top">
+            <div class="row">
+                <div class="col-md-12 top-lay">
+                    <h3>Choose one answer from the following questions</h3>
+                    <hr></hr>
+                </div>
+            </div>
+        </div>
+        <section class="section-a the-section" id="section-a">
+            <div class="container">
+                <div class="row">
+                    <div class="col title-text">
+                        <span>
+                            <b>1. &nbsp;&nbsp;</b>If I have to learn how to do something, I learn best when I:
+                        </span>
+                    </div>
+                    <div class="col-md-12 content-lay">
+                        <div class="content-line">
+                            <input type="radio" id="a-1" name="q-1" class="radio" onclick="onRadioClick('a-1')">
+                            <label for="a-1" class="content-label" onclick="onRadioClick('a-1')">
+                                <span>
+                                    <b>a. &nbsp;</b>Watch someone show me how.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="a-2" name="q-1" class="radio" onclick="onRadioClick('a-2')">
+                            <label for="a-2" class="content-label" onclick="onRadioClick('a-2')">
+                                <span>
+                                    <b>b. &nbsp;</b>Hear someone tell me how.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="a-3" name="q-1" class="radio" onclick="onRadioClick('a-3')">
+                            <label for="a-3" class="content-label" onclick="onRadioClick('a-3')">
+                                <span>
+                                    <b>c. &nbsp;</b>Try to do it myself.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 button-lay">
+                        <span class="submit-btn" onclick="onContinueBtnClick('q-1')">
+                            Continue
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-b the-section" id="section-b">
+            <div class="container">
+                <div class="row">
+                    <div class="col title-text">
+                        <span>
+                            <b>2. &nbsp;&nbsp;</b>When I spell, I verify accuracy by:
+                        </span>
+                    </div>
+                    <div class="col-md-12 content-lay">
+                        <div class="content-line">
+                            <input type="radio" id="b-1" name="q-2" class="radio" onclick="onRadioClick('b-1')">
+                            <label for="b-1" class="content-label" onclick="onRadioClick('b-1')">
+                                <span>
+                                    <b>a. &nbsp;</b>Looking at the word to see if it looks correct.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="b-2" name="q-2" class="radio" onclick="onRadioClick('b-2')">
+                            <label for="b-2" class="content-label" onclick="onRadioClick('b-2')">
+                                <span>
+                                    <b>b. &nbsp;</b>Sounding the word out in my head.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="b-3" name="q-2" class="radio" onclick="onRadioClick('b-3')">
+                            <label for="b-3" class="content-label" onclick="onRadioClick('b-3')">
+                                <span>
+                                    <b>c. &nbsp;</b>Getting a feeling about the correctness of the spelling.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 button-lay">
+                        <span class="submit-btn" onclick="onContinueBtnClick('q-2')">
+                            Continue
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-c the-section" id="section-c">
+            <div class="container">
+                <div class="row">
+                    <div class="col title-text">
+                        <span>
+                            <b>3. &nbsp;&nbsp;</b>When asked to give directions, I:
+                        </span>
+                    </div>
+                    <div class="col-md-12 content-lay">
+                        <div class="content-line">
+                            <input type="radio" id="c-1" name="q-3" class="radio" onclick="onRadioClick('c-1')">
+                            <label for="c-1" class="content-label" onclick="onRadioClick('c-1')">
+                                <span>
+                                    <b>a. &nbsp;</b>See the actual places in my mind as I say them or prefer to draw them.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="c-2" name="q-3" class="radio" onclick="onRadioClick('c-2')">
+                            <label for="c-2" class="content-label" onclick="onRadioClick('c-2')">
+                                <span>
+                                    <b>b. &nbsp;</b>Have no difficulty giving them verbally.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="c-3" name="q-3" class="radio" onclick="onRadioClick('c-3')">
+                            <label for="c-3" class="content-label" onclick="onRadioClick('c-3')">
+                                <span>
+                                    <b>c. &nbsp;</b>Have to point or move my body as I give them.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 button-lay">
+                        <span class="submit-btn" onclick="onContinueBtnClick('q-3')">
+                            Continue
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-d the-section" id="section-d">
+            <div class="container">
+                <div class="row">
+                    <div class="col title-text">
+                        <span>
+                            <b>4. &nbsp;&nbsp;</b>When I have to remember a list of items, I remember them best if I:
+                        </span>
+                    </div>
+                    <div class="col-md-12 content-lay">
+                        <div class="content-line">
+                            <input type="radio" id="d-1" name="q-4" class="radio" onclick="onRadioClick('d-1')">
+                            <label for="d-1" class="content-label" onclick="onRadioClick('d-1')">
+                                <span>
+                                    <b>a. &nbsp;</b>Write them down.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="d-2" name="q-4" class="radio" onclick="onRadioClick('d-2')">
+                            <label for="d-2" class="content-label" onclick="onRadioClick('d-2')">
+                                <span>
+                                    <b>b. &nbsp;</b>Repeat them over and over to myself.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="d-3" name="q-4" class="radio" onclick="onRadioClick('d-3')">
+                            <label for="d-3" class="content-label" onclick="onRadioClick('d-3')">
+                                <span>
+                                    <b>c. &nbsp;</b>Move around and use my fingers to name each item.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 button-lay">
+                        <span class="submit-btn" onclick="onContinueBtnClick('q-4')">
+                            Continue
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-e the-section" id="section-e">
+            <div class="container">
+                <div class="row">
+                    <div class="col title-text">
+                        <span>
+                            <b>5. &nbsp;&nbsp;</b>When solving a problem, I:
+                        </span>
+                    </div>
+                    <div class="col-md-12 content-lay">
+                        <div class="content-line">
+                            <input type="radio" id="e-1" name="q-5" class="radio" onclick="onRadioClick('e-1')">
+                            <label for="e-1" class="content-label" onclick="onRadioClick('e-1')">
+                                <span>
+                                    <b>a. &nbsp;</b>Write or draw diagrams to see it.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="e-2" name="q-5" class="radio" onclick="onRadioClick('e-2')">
+                            <label for="e-2" class="content-label" onclick="onRadioClick('e-2')">
+                                <span>
+                                    <b>b. &nbsp;</b>Talk myself through it.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="e-3" name="q-5" class="radio" onclick="onRadioClick('e-3')">
+                            <label for="e-3" class="content-label" onclick="onRadioClick('e-3')">
+                                <span>
+                                    <b>c. &nbsp;</b>Use and/or move objects to help me think.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 button-lay">
+                        <span class="submit-btn" onclick="onContinueBtnClick('q-5')">
+                            Continue
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-f the-section" id="section-f">
+            <div class="container">
+                <div class="row">
+                    <div class="col title-text">
+                        <span>
+                            <b>6. &nbsp;&nbsp;</b>When I am adding numbers, I verify my answer by:
+                        </span>
+                    </div>
+                    <div class="col-md-12 content-lay">
+                        <div class="content-line">
+                            <input type="radio" id="f-1" name="q-6" class="radio" onclick="onRadioClick('f-1')">
+                            <label for="f-1" class="content-label" onclick="onRadioClick('f-1')">
+                                <span>
+                                    <b>a. &nbsp;</b>Looking at the numbers to see if they are correct.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="f-2" name="q-6" class="radio" onclick="onRadioClick('f-2')">
+                            <label for="f-2" class="content-label" onclick="onRadioClick('f-2')">
+                                <span>
+                                    <b>b. &nbsp;</b>Counting the numbers in my head or out loud.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="f-3" name="q-6" class="radio" onclick="onRadioClick('f-3')">
+                            <label for="f-3" class="content-label" onclick="onRadioClick('f-3')">
+                                <span>
+                                    <b>c. &nbsp;</b>Using my fingers to get a feeling if it is correct.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 button-lay">
+                        <span class="submit-btn" onclick="onContinueBtnClick('q-6')">
+                            Continue
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-g the-section" id="section-g">
+            <div class="container">
+                <div class="row">
+                    <div class="col title-text">
+                        <span>
+                            <b>7. &nbsp;&nbsp;</b>When trying to recall names, I remember:
+                        </span>
+                    </div>
+                    <div class="col-md-12 content-lay">
+                        <div class="content-line">
+                            <input type="radio" id="g-1" name="q-7" class="radio" onclick="onRadioClick('g-1')">
+                            <label for="g-1" class="content-label" onclick="onRadioClick('g-1')">
+                                <span>
+                                    <b>a. &nbsp;</b>Faces more easily than names.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="g-2" name="q-7" class="radio" onclick="onRadioClick('g-2')">
+                            <label for="g-2" class="content-label" onclick="onRadioClick('g-2')">
+                                <span>
+                                    <b>b. &nbsp;</b>Names more easily than faces.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="g-3" name="q-7" class="radio" onclick="onRadioClick('g-3')">
+                            <label for="g-3" class="content-label" onclick="onRadioClick('g-3')">
+                                <span>
+                                    <b>c. &nbsp;</b>The situation or the meeting more easily than names or faces.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 button-lay">
+                        <span class="submit-btn" onclick="onContinueBtnClick('q-7')">
+                            Continue
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-h the-section" id="section-h">
+            <div class="container">
+                <div class="row">
+                    <div class="col title-text">
+                        <span>
+                            <b>8. &nbsp;&nbsp;</b>Before going to sleep at night, I appreciate that:
+                        </span>
+                    </div>
+                    <div class="col-md-12 content-lay">
+                        <div class="content-line">
+                            <input type="radio" id="h-1" name="q-8" class="radio" onclick="onRadioClick('h-1')">
+                            <label for="h-1" class="content-label" onclick="onRadioClick('h-1')">
+                                <span>
+                                    <b>a. &nbsp;</b>The room is dark.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="h-2" name="q-8" class="radio" onclick="onRadioClick('h-2')">
+                            <label for="h-2" class="content-label" onclick="onRadioClick('h-2')">
+                                <span>
+                                    <b>b. &nbsp;</b>The room is quiet.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="content-line">
+                            <input type="radio" id="h-3" name="q-8" class="radio" onclick="onRadioClick('h-3')">
+                            <label for="h-3" class="content-label" onclick="onRadioClick('h-3')">
+                                <span>
+                                    <b>c. &nbsp;</b>The bed feels comfortable.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 button-lay">
+                        <span class="submit-btn" onclick="onContinueBtnClick('q-8')">
+                            Continue
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="results-lay" id="results-page">
+        <div class="container main-lay">
+            <div class="row">
+                <div class="col-md-12 top-lay">
+                    <h3>Your Results</h3>
+                    <hr></hr>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col result-title-lay">
+                    <span>
+                        <b id="result-title"></b>
+                    </span>
+                </div>
+                <div class="col-md-12 details-lay" id="details-lay">
+
+                </div>
+                <hr></hr>
+            </div>
+            <div class="row">
+                <div class="col-md-12 tips-lay">
+                    <span>
+                        <b id="tips-title"></b>
+                    </span>
+                </div>
+                <div class="col-md-12 tips-desc">
+                    <span>
+                        <b id="tips-desc"></b>
+                    </span>
+                </div>
+                <div class="col-md-12 tips-items-lay" id="tips-items-lay">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 last-lay">
+                    <span class="thanks-txt">
+                        --- Thank you for being with us. @ CRDB 2021 ---
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 download-lay">
+                    <span class="download-btn" onclick="onDownloadBtnClick()">
+                        Download Your Results
+                    </span>
+                </div>
+            </div>
+            <hr></hr>
+            <div class="row">
+                <div class="col-md-12 last-lay">
+                    <span class="thanks-txt">
+                        ---  Powered By <a href="https://www.imperialinnovations.co.tz/" target="_blank">@ Imperial Innovations (IMC)</a> 2021 ---
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/pdfmake.min.js" integrity="sha512-q+jWnBtVH327w/3nlp2Th9Dtjmlfj3Mb4tXCGbYjYWUqtFyIhl1Ul8GXoMkzbWvdIRVlS0P1pyteYUzxArKYOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <!-- <script src='lib/pdfmake/build/pdfmake.min.js'></script>
+    <script src='lib/pdfmake/build/vfs_fonts.js'></script> -->
+    <script src="/routes/quiz.js" type="text/javascript"></script>
+</body>
+
+</html>

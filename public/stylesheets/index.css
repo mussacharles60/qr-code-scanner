@@ -1,0 +1,137 @@
+html {
+    width: auto;
+    height: auto;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-family: 'Cabin', sans-serif;
+    background-color: rgb(255, 255, 255);
+    line-height: 1.7;
+    background-attachment: fixed;
+    background-size: cover;
+    /* background-image: linear-gradient(to top, rgb(30, 37, 92), rgb(53, 65, 177), rgb(53, 65, 177)); */
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: rgba(42, 184, 61, 0);
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: rgb(137, 224, 134);
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: rgb(182, 235, 168);
+}
+
+.user-select-none {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+table {
+    width: 100%;
+    height: 100vh;
+    border: 0;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+td {
+    width: 100%;
+    align-content: center;
+}
+
+.top-lay {
+    /* background-color: #fdeeaa; */
+    text-align: center;
+}
+
+.top-text {
+    font-size: 5vh;
+    font-weight: bold;
+    color: #25a719;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.content-lay {
+    text-align: center;
+    display: block;
+    align-items: center;
+    /* position: relative; */
+    margin-top: 5vh;
+    margin-bottom: 4vh;
+    z-index: 1;
+}
+
+.info-text {
+    font-size: 5vh;
+    font-weight: bold;
+    color: #2c167c;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.sub-content-lay {
+    text-align: center;
+    display: block;
+    align-items: center;
+    /* position: relative; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+.sub-content-lay span {
+    font-size: 3vh;
+    /* font-weight: bold; */
+    color: #000000;
+    padding: 8px;
+    margin: 8px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.button-lay {
+    text-align: center;
+    display: block;
+    align-items: center;
+    /* position: relative; */
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    z-index: 1;
+    font-size: 30px;
+}
+
+.take-quiz-btn {
+    width:300px;
+    height: 200px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 10px;
+    margin: 30px;
+    text-align: center;
+    background-color: #25a719;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 0px;
+    cursor: pointer;
+}
+
