@@ -38,14 +38,21 @@
       $query_1 = "SELECT `first_name`, `last_name` FROM `qrcodes` WHERE `qrImage` = '$code'";
       $result_1 = mysqli_query($conn, $query_1);
       if (!$result) {
-        die('{"error":{"code":402,"message":"invalid query"}}');
+        echo '{"error":{"code":402,"message":"invalid query"}}';
       }
       else {
+        $first_name = "";
+        $last_name = "";
         $row = mysqli_fetch_assoc($result_1);
         $first_name = $row['first_name'];
         $last_name = $row['last_name'];
-        //$message = "Hello $first_name $last_name, you have been successfully checked in.";
-        echo '{"success":{"code":200,"message":"Data updated", "first_name": "'.$first_name.'", "last_name": "'.$last_name.'"}}';
+        if ($first_name == "" && $last_name == "") {
+          echo '{"error":{"code":404,"message":"QR Code Not Found"}}';
+        }
+        else {
+          //$message = "Hello $first_name $last_name, you have been successfully checked in.";
+          echo '{"success":{"code":200,"message":"Data updated", "user":{"first_name":"'.$first_name.'","last_name": "'.$last_name.'"}}}';
+        }
       }
     }
     mysqli_close($conn);
