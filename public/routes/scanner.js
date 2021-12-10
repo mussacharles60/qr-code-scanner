@@ -76,6 +76,8 @@ const frequency = 2310;
 const type = 'sawtooth';
 
 var isUpdating = false;
+const output_dialog = document.getElementById('output_dialog');
+output_dialog.style.display = "none";
 
 // function show() {
 //     // frequency = document.getElementById("fIn").value;
@@ -137,10 +139,16 @@ function updateData(qrcode) {
                 }
             })
             .then((result) => {
-                isUpdating = false;
                 console.log("server: response: ", result.data);
                 if (result.data && result.data.success) {
                     beep();
+                    output_dialog.style.display = "flex";
+                    setTimeout(function() {
+                        output_dialog.style.display = "none";
+                        isUpdating = false;
+                    }, 1000);
+                } else {
+                    isUpdating = false;
                 }
             })
             .catch((err) => {
