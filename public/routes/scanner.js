@@ -53,18 +53,14 @@ function tick() {
             outputMessage.hidden = true;
             outputData.parentElement.hidden = false;
             outputData.innerText = code.data;
-            //
-            video.style.display = "none";
-            canvasElement.style.display = "block";
-
-            beep();
-            if (!isUpdating) {
-                updateData(code.data);
+            if (code.data.length > 0) {
+                video.style.display = "none";
+                canvasElement.style.display = "block";
+                if (!isUpdating) {
+                    beep();
+                    updateData(code.data);
+                }
             }
-            // if (code.data.endsWith("png")) {
-            //     beep();
-            //     //window.open(code.data, "_self");
-            // }
         } else {
             outputMessage.hidden = false;
             outputData.parentElement.hidden = true;

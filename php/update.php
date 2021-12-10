@@ -28,7 +28,7 @@
       die('{"error":{"code":"503","message":"Service Unavailable"}}');
     }
     
-    $query = "UPDATE `qrcodes` SET `attend` = 1 WHERE `qrImage` = '$code'";
+    $query = "UPDATE `qrcodes` SET `attend` = 1 WHERE `qrImage` = '$code' AND `attend` = 0";
    
 	$result = mysqli_query($conn, $query);
 	if (!$result) {
