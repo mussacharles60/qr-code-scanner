@@ -55,11 +55,11 @@ function tick() {
             outputData.innerText = code.data;
             video.style.display = "none";
             canvasElement.style.display = "block";
-            // if (code.data.length > 0) {
-            //     if (!isUpdating) {
-            //         updateData(code.data);
-            //     }
-            // }
+            if (code.data.length > 0) {
+                if (!isUpdating) {
+                    updateData(code.data);
+                }
+            }
         } else {
             outputMessage.hidden = false;
             outputData.parentElement.hidden = true;
