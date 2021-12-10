@@ -30,13 +30,24 @@
     
     $query = "UPDATE `qrcodes` SET `attend` = 1 WHERE `qrImage` = '$code' AND `attend` = 0";
    
-	$result = mysqli_query($conn, $query);
-	if (!$result) {
-		die('{"error":{"code":402,"message":"invalid query"}}');
-	}
-
-	echo '{"success":{"code":200,"message":"Data updated"}}';
-
+    $result = mysqli_query($conn, $query);
+    if (!$result) {
+      die('{"error":{"code":402,"message":"invalid query"}}');
+    }
+    else {
+      $query_1 = "SELECT `first_name`, `last_name` FROM `qrcodes` WHERE `qrImage` = '$code'";
+      $result_1 = mysqli_query($conn, $query_1);
+      if (!$result) {
+        die('{"error":{"code":402,"message":"invalid query"}}');
+      }
+      else {
+        $row = mysqli_fetch_assoc($result_1);
+        $first_name = $row['first_name'];
+        $last_name = $row['last_name'];
+        //$message = "Hello $first_name $last_name, you have been successfully checked in.";
+        echo '{"success":{"code":200,"message":"Data updated", "first_name": "'.$first_name.'", "last_name": "'.$last_name.'"}}';
+      }
+    }
     mysqli_close($conn);
   }
   else {
