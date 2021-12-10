@@ -56,10 +56,12 @@ function tick() {
             //
             video.style.display = "none";
             canvasElement.style.display = "block";
-            if (code.data.endsWith("png")) {
 
-                //window.open(code.data, "_self");
-            }
+            beep();
+            // if (code.data.endsWith("png")) {
+            //     beep();
+            //     //window.open(code.data, "_self");
+            // }
         } else {
             outputMessage.hidden = false;
             outputData.parentElement.hidden = true;
@@ -71,7 +73,7 @@ function tick() {
 audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 
 const volume = 1;
-const duration = 1000;
+const duration = 250;
 const frequency = 2310;
 const type = 'sawtooth';
 
