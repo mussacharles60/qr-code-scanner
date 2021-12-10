@@ -57,7 +57,6 @@ function tick() {
                 video.style.display = "none";
                 canvasElement.style.display = "block";
                 if (!isUpdating) {
-                    beep();
                     updateData(code.data);
                 }
             }
@@ -140,6 +139,9 @@ function updateData(qrcode) {
             .then((result) => {
                 isUpdating = false;
                 console.log("server: response: ", result.data);
+                if (result.data && result.data.success) {
+                    beep();
+                }
             })
             .catch((err) => {
                 isUpdating = false;
