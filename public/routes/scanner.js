@@ -1,11 +1,11 @@
 // var video = document.createElement("video");
-var video = document.getElementById("video");
-var canvasElement = document.getElementById("canvas");
-var canvas = canvasElement.getContext("2d");
-var loadingMessage = document.getElementById("loadingMessage");
-var outputContainer = document.getElementById("output");
-var outputMessage = document.getElementById("outputMessage");
-var outputData = document.getElementById("outputData");
+const video = document.getElementById("video");
+const canvasElement = document.getElementById("canvas");
+const canvas = canvasElement.getContext("2d");
+const loadingMessage = document.getElementById("loadingMessage");
+const outputContainer = document.getElementById("output");
+const outputMessage = document.getElementById("outputMessage");
+const outputData = document.getElementById("outputData");
 
 video.style.display = "block";
 canvasElement.style.display = "none";
@@ -53,10 +53,12 @@ function tick() {
             outputMessage.hidden = true;
             outputData.parentElement.hidden = false;
             outputData.innerText = code.data;
-            if (code.data.startsWith("http")) {
-                video.style.display = "none";
-                canvasElement.style.display = "block";
-                window.open(code.data, "_self");
+            //
+            video.style.display = "none";
+            canvasElement.style.display = "block";
+            if (code.data.endsWith("png")) {
+
+                //window.open(code.data, "_self");
             }
         } else {
             outputMessage.hidden = false;
@@ -65,3 +67,47 @@ function tick() {
     }
     requestAnimationFrame(tick);
 }
+
+audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+
+const volume = 1;
+const duration = 1000;
+const frequency = 2310;
+const type = 'sawtooth';
+
+// function show() {
+//     // frequency = document.getElementById("fIn").value;
+//     // document.getElementById("fOut").innerHTML = frequency + ' Hz';
+//     // switch (document.getElementById("tIn").value * 1) {
+//     //   case 0: type = 'sine'; break;
+//     //   case 1: type = 'square'; break;
+//     //   case 2: type = 'sawtooth'; break;
+//     //   case 3: type = 'triangle'; break;
+//     // }
+//     //document.getElementById("tOut").innerHTML = type;
+//     // volume = document.getElementById("vIn").value / 100;
+//     //document.getElementById("vOut").innerHTML = volume;
+//     //duration = document.getElementById("dIn").value;
+//     //document.getElementById("dOut").innerHTML = duration + ' ms';
+// }
+
+function beep() {
+    var oscillator = audioCtx.createOscillator();
+    var gainNode = audioCtx.createGain();
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    gainNode.gain.value = volume;
+    oscillator.frequency.value = frequency;
+    oscillator.type = type;
+
+    oscillator.start();
+
+    setTimeout(
+        function() {
+            oscillator.stop();
+        },
+        duration
+    );
+};
