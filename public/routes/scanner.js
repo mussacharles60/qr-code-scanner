@@ -58,6 +58,9 @@ function tick() {
             canvasElement.style.display = "block";
 
             beep();
+            if (!isUpdating) {
+                updateData(code.data);
+            }
             // if (code.data.endsWith("png")) {
             //     beep();
             //     //window.open(code.data, "_self");
@@ -76,6 +79,8 @@ const volume = 1;
 const duration = 250;
 const frequency = 2310;
 const type = 'sawtooth';
+
+var isUpdating = false;
 
 // function show() {
 //     // frequency = document.getElementById("fIn").value;
@@ -113,3 +118,48 @@ function beep() {
         duration
     );
 };
+
+function updateData(qrcode) {
+    isUpdating = true;
+
+    const host = "https://tpsf.imperialinnovations.co.tz/qr-scanner/update.php";
+
+    const request = {
+        code: qrcode
+    }
+
+    try {
+        axios({
+                url: host,
+                method: 'post',
+                responseType: 'json',
+                data: request,
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    // 'cache-control': 'no-cache',
+                    // 'pragma': 'no-cache'
+                }
+            })
+            .then((result) => {
+                isUpdating = false;
+                console.log("server: response: ", result.data);
+            })
+            .catch((err) => {
+                isUpdating = false;
+                console.error("> axios error: ", err.message);
+            })
+            .catch((thrown) => {
+                isUpdating = false;
+                if (axios.isCancel(thrown)) {
+                    console.log('Request canceled', thrown.message);
+                } else {
+                    console.error("> axios error: ", thrown);
+                }
+            });
+
+    } catch (e) {
+        isUpdating = false;
+        console.error(e);
+    }
+}
