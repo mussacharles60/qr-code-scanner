@@ -63,6 +63,8 @@ function tick() {
         } else {
             outputMessage.hidden = false;
             outputData.parentElement.hidden = true;
+            video.style.display = "block";
+            canvasElement.style.display = "none";
         }
     }
     requestAnimationFrame(tick);
