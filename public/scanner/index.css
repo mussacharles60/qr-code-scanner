@@ -139,8 +139,8 @@ td {
 }
 
 #dialog_content {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     background-color: #eee;
     padding: 10px;
     padding-bottom: 0;
@@ -152,4 +152,9 @@ td {
     font-weight: bold;
     border-radius: 8px;
     border: 1px solid #838383;
+}
+
+#dialog_content span {
+    margin: 8px;
+    padding: 2px;
 }

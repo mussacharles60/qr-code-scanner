@@ -80,6 +80,7 @@ const type = 'sawtooth';
 var isUpdating = false;
 const output_dialog = document.getElementById('output_dialog');
 output_dialog.style.display = "none";
+const name_text = document.getElementById('name');
 
 // function show() {
 //     // frequency = document.getElementById("fIn").value;
@@ -145,7 +146,13 @@ function updateData(qrcode) {
                 if (result.data && result.data.success) {
                     beep();
                     output_dialog.style.display = "flex";
+                    if (result.data.success.user) {
+                        const first_name = result.data.success.user.first_name;
+                        const last_name = result.data.success.user.last_name;
+                        name_text.innerText = first_name + " " + last_name;
+                    }
                     setTimeout(function() {
+                        name_text.innerText = "";
                         output_dialog.style.display = "none";
                         isUpdating = false;
                     }, 1000);
